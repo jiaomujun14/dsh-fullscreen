@@ -1,0 +1,45 @@
+{
+  "name": "dsh-fullscreen",
+  "version": "0.1.0",
+  "description": "DSH 全屏插件：F11 / Ctrl+Cmd+F 切换操作系统级全屏，并记住全屏状态，刷新或恢复窗口后自动回到全屏",
+  "license": "MIT",
+  "author": "jiaomujun14",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "fullscreen",
+    "plugin",
+    "desktop"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiaomujun14/dsh-fullscreen.git"
+  },
+  "homepage": "https://github.com/jiaomujun14/dsh-fullscreen#readme",
+  "bugs": {
+    "url": "https://github.com/jiaomujun14/dsh-fullscreen/issues"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib",
+    "src",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ]
+}

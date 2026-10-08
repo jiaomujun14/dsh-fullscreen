@@ -1,0 +1,20 @@
+# ============================================================================
+# dsh-fullscreen —— DSH bundle patch（挂载声明）
+# ============================================================================
+# DSH 启动时按 bundle 层栈叠加各插件的 patch，本文件把本插件插入 profile
+# 的配置树。
+#
+# 本插件只贡献 ONE host row，且该 host row 是**空壳**：真正干活的浏览器半区
+# 由 package.json 里的 `dsh.client` 清单（platform: "web" + exports["./client"]）
+# 加载，然后在渲染进程里用 HTML Fullscreen API 控制窗口全屏。
+#
+# 为什么还需要 host row？因为 ClientModuleRegistry 只扫描“已加载的 Loader 条目”
+# （见 @deepseek-ai/dsh-client-modules 的 `internal/plugin` 订阅），没有这行
+# insert，package.json 里的 dsh.client 根本不会被发现。
+#
+# patch 会替换目标行的整个 config，所以这里只写 additive 的 insert 行。
+# ============================================================================
+
+- insert:
+    - id: dsh-fullscreen
+      name: 'dsh-fullscreen'

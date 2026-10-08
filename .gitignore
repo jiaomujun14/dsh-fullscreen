@@ -1,0 +1,8 @@
+# verify 脚本的产物
+verify/last-real-page-probe.json
+.probe-profile/
+
+# 依赖与临时文件
+node_modules/
+*.log
+dsh-fullscreen-*.tgz
